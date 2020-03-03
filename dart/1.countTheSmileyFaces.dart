@@ -1,4 +1,4 @@
-bool isValidEye(String eyes) {
+bool isValidEyes(String eyes) {
   if (eyes == ':' || eyes == ';') {
     return true;
   }
@@ -6,16 +6,16 @@ bool isValidEye(String eyes) {
   return false;
 }
 
-bool isValidNose(String eyes) {
-  if (eyes == '-' || eyes == '~') {
+bool isValidNose(String nose) {
+  if (nose == '-' || nose == '~') {
     return true;
   }
   
   return false;
 }
 
-bool isValidMouth(String eyes) {
-  if (eyes == ')' || eyes == 'D') {
+bool isValidMouth(String mouth) {
+  if (mouth == ')' || mouth == 'D') {
     return true;
   }
   
@@ -26,12 +26,12 @@ bool isValidFace(String face) {
   print(face);
   
   if (face.length == 2 
-    && isValidEye(face[0])
+    && isValidEyes(face[0])
     && isValidMouth(face[1])
   ) {
     return true;
   } else if (face.length == 3
-    && isValidEye(face[0])
+    && isValidEyes(face[0])
     && isValidNose(face[1])
     && isValidMouth(face[2])
   ) {
