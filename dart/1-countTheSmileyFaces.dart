@@ -2,6 +2,8 @@
   https://www.codewars.com/kata/583203e6eb35d7980400002a/train/dart
 */
 
+import 'package:test/test.dart';
+
 bool isValidEyes(String eyes) {
   if (eyes == ':' || eyes == ';') {
     return true;
@@ -57,12 +59,7 @@ int countSmileys(List<String> arr) {
   return count;
 }
 
-void main() {
-  print(countSmileys([':)', ';(', ';}', ':-D']));
-}
-
-/*
-void main() {
+void runTests() {
   group("Fixed tests", () {
     test("Testing for []", () => expect(countSmileys([]), equals(0)));
     test("Testing for [':)', ';(', ';}', ':-D']", () => expect(countSmileys([':)', ';(', ';}', ':-D']), equals(2)));
@@ -74,4 +71,7 @@ void main() {
     test("Testing for [':o)',':--D',';-~)']", () => expect(countSmileys([':o)',':--D',';-~)']), equals(0)));
   });
 }
-*/
+
+void main() {
+  runTests();
+}
