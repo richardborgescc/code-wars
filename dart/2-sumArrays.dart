@@ -18,6 +18,6 @@ void main() {
   runTests();
 }
 
-num sum(List<num> arr) {
-  return 0;
-}
+num sum(List<num> arr) => arr.length > 0
+  ? arr.reduce((sum, element) => sum + element)
+  : 0;
