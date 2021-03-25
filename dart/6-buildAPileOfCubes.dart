@@ -3,6 +3,7 @@
 */
 
 import "package:test/test.dart";
+import 'dart:math';
 
 void main() {
   dotest(int m, exp) {
@@ -20,5 +21,13 @@ void main() {
 }
 
 int findNb(int m) {
-    return -1;
+  int n = 1;
+  int sum = 0;
+
+  while (sum < m) {
+    sum += pow(n, 3);
+    n++;
+  }
+
+  return sum == m ? n - 1 : -1;
 }
