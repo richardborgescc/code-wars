@@ -2,11 +2,13 @@
   https://www.codewars.com/kata/559e3224324a2b6e66000046/train/dart
 */
 
+import 'dart:math';
+
 import "package:test/test.dart";
 
 void main() {
   test("Basic-tests", () {
-    gridGenerator(5);
+    gridGenerator(8);
     /*
     expect(sumin(5), equals(55));
     expect(sumax(8), equals(372));
@@ -26,9 +28,18 @@ int sumsum(int n) {
 }
 
 void gridGenerator(int n) {
+  int sumMin = 0;
+  int sumMax = 0;
+
   for (int i = 0; i <= n; i++) {
     for (int j = 0; j <= n; j++) {
-      print('$i, $j');
+      sumMax += max(i, j);
+      sumMin += min(i, j);
     }
   }
+
+  print('sumMin: $sumMin');
+  print('sumMax: $sumMax');
+  int sumSum = sumMax + sumMin;
+  print('sumSum: $sumSum');
 }
