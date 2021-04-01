@@ -1,5 +1,5 @@
 void main() {
-  stringInterpolation();
+  nullableVariables();
 }
 
 /*
@@ -17,4 +17,14 @@ void stringInterpolation() {
 
   String callFunctionInterpolation = '${"upper case me".toUpperCase()}';
   print("callFunctionInterpolation: $callFunctionInterpolation");
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#nullable-variables
+*/
+void nullableVariables() {
+  int invalidNullSafetyNull = null;
+  print(invalidNullSafetyNull);
+
+  // int? nullSafetyNull = null; // dart version >= 2.12
 }
