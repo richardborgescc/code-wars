@@ -1,5 +1,5 @@
 void main() {
-  nullableVariables();
+  nullAwareOperators();
 }
 
 /*
@@ -23,8 +23,24 @@ void stringInterpolation() {
   https://dart.dev/codelabs/dart-cheatsheet#nullable-variables
 */
 void nullableVariables() {
-  int invalidNullSafetyNull = null;
+  /*
+  int invalidNullSafetyNull = null; // do not work with null safety
   print(invalidNullSafetyNull);
+  */
 
-  // int? nullSafetyNull = null; // dart version >= 2.12
+  int? nullSafetyNull = null; // dart sdk version >= 2.12
+  print(nullSafetyNull);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#null-aware-operators
+*/
+void nullAwareOperators() {
+  int? nullVar;
+
+  nullVar ??= 3;
+  print(nullVar);
+
+  print('1 ?? 3 = ${1 ?? 3}');
+  print('null ?? 12 = ${null ?? 12}');
 }
