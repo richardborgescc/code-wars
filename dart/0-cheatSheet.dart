@@ -1,5 +1,5 @@
 void main() {
-  nullAwareOperators();
+  conditionalPropertyAccess();
 }
 
 /*
@@ -43,4 +43,22 @@ void nullAwareOperators() {
 
   print('1 ?? 3 = ${1 ?? 3}');
   print('null ?? 12 = ${null ?? 12}');
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#conditional-property-access
+*/
+class Person{
+  String? name;
+  int? age;
+
+  Person({ this.name, this.age });
+}
+
+void conditionalPropertyAccess() {
+  Person fullPerson = Person(name:"Ram", age: 18);
+  Person noNamePerson = Person(age: 0);
+
+  print(fullPerson?.name);
+  print(noNamePerson?.name);
 }
