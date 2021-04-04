@@ -1,5 +1,5 @@
 void main() {
-  conditionalPropertyAccess();
+  collectionLiterals();
 }
 
 /*
@@ -61,4 +61,33 @@ void conditionalPropertyAccess() {
 
   print(fullPerson?.name);
   print(noNamePerson?.name);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#collection-literals
+*/
+void collectionLiterals() {
+  final aListOfStrings = ['one', 'two', 'three'];
+  print(aListOfStrings);
+  
+  final aSetOfStrings = {'one', 'two', 'three'};
+  print(aSetOfStrings);
+
+  final aMapOfStringsToInts = {
+    'one': 1,
+    'two': 2,
+    'three': 3,
+  };
+  print(aMapOfStringsToInts);
+
+  final aListOfInts = <int>[];
+  print(aListOfInts);
+
+  final aSetOfInts = <int>{};
+  print(aSetOfInts);
+
+  final aMapOfIntToDouble = <int, double>{};
+  print(aMapOfIntToDouble);
+
+  // final aListOfBaseType = <BaseType>[SubType(), SubType()];
 }
