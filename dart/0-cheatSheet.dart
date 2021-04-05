@@ -1,5 +1,5 @@
 void main() {
-  collectionLiterals();
+  arrowSyntax();
 }
 
 /*
@@ -90,4 +90,17 @@ void collectionLiterals() {
   print(aMapOfIntToDouble);
 
   // final aListOfBaseType = <BaseType>[SubType(), SubType()];
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#arrow-syntax
+*/
+void arrowSyntax() {
+  const aListOfStrings = ['a', 'b', 'c'];
+  bool hasEmpty = aListOfStrings.any((s) => s.isEmpty);
+  print(hasEmpty);
+
+  const emptyStringList = [''];
+  hasEmpty = emptyStringList.any((s) => s.isEmpty);
+  print(hasEmpty);
 }
