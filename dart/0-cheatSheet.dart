@@ -1,5 +1,5 @@
 void main() {
-  arrowSyntax();
+  cascades();
 }
 
 /*
@@ -103,4 +103,31 @@ void arrowSyntax() {
   const emptyStringList = [''];
   hasEmpty = emptyStringList.any((s) => s.isEmpty);
   print(hasEmpty);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#cascades
+*/
+class BigObject {
+  int anInt = 0;
+  String aString = '';
+  List<double> aList = [];
+  bool _done = false;
+  
+  void allDone() {
+    _done = true;
+  }
+}
+void cascades() {
+  BigObject fillBigObject(BigObject obj) {
+    // Create a single statement that will update and return obj:
+    return obj
+      ..anInt = 4
+      ..aString = "opa"
+      ..aList = [1, 2, 3]
+      ..allDone();
+  }
+
+  BigObject obj = BigObject();
+  print(fillBigObject(obj).aList);
 }
