@@ -1,5 +1,5 @@
 void main() {
-  cascades();
+  gettersAndSetters();
 }
 
 /*
@@ -130,4 +130,33 @@ void cascades() {
 
   BigObject obj = BigObject();
   print(fillBigObject(obj).aList);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#getters-and-setters
+*/
+class InvalidPriceException {}
+
+class ShoppingCart {
+  List<double> _prices = [];
+
+  double get total => _prices.fold(0, (prev, element) => prev + element);
+
+  set prices(List<double> value) {
+    if (value.any((price) => price < 0)) {
+      throw InvalidPriceException();
+    }
+
+    _prices = value;
+  }
+}
+
+void gettersAndSetters() {
+  ShoppingCart cart = ShoppingCart();
+
+  cart.prices = [1, 2, 3];
+  assert(cart.total == 6);
+  print(cart.total);
+
+  cart.prices = [1, -1]; // throw InvalidPriceException
 }
