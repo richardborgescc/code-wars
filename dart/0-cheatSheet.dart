@@ -1,5 +1,5 @@
 void main() {
-  gettersAndSetters();
+  optionalPositionalParameters();
 }
 
 /*
@@ -159,4 +159,22 @@ void gettersAndSetters() {
   print(cart.total);
 
   cart.prices = [1, -1]; // throw InvalidPriceException
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#optional-positional-parameters
+*/
+String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
+  String sum = '${a}';
+  
+  if (b != null) sum = '$sum,$b';
+  if (c != null) sum = '$sum,$c';
+  if (d != null) sum = '$sum,$d';
+  if (e != null) sum = '$sum,$e';
+  
+  return sum;
+}
+
+void optionalPositionalParameters() {
+  print(joinWithCommas(1, 2, 3));
 }
