@@ -1,5 +1,5 @@
 void main() {
-  optionalPositionalParameters();
+  optionalNamedParameters();
 }
 
 /*
@@ -177,4 +177,42 @@ String joinWithCommas(int a, [int? b, int? c, int? d, int? e]) {
 
 void optionalPositionalParameters() {
   print(joinWithCommas(1, 2, 3));
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#optional-named-parameters
+*/
+class MyDataObject {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+
+  MyDataObject({
+     this.anInt = 1,
+     this.aString = 'Old!',
+     this.aDouble = 2.0,
+  });
+
+  // Add your copyWith method here:
+  MyDataObject copyWith({int? newInt, String? newString, double? newDouble}) => 
+    MyDataObject(
+      anInt: newInt ?? this.anInt,
+      aString: newString ?? this.aString,
+      aDouble: newDouble ?? this.aDouble,
+    );
+}
+
+void optionalNamedParameters() {
+  MyDataObject dataObj = MyDataObject();
+
+  print('Original:');
+  print(dataObj.anInt);
+  print(dataObj.aString);
+  print(dataObj.aDouble);
+
+  MyDataObject copyDataObj = dataObj.copyWith(newInt: 99,newDouble: 3.9);
+  print('Copy with new values:');
+  print(copyDataObj.anInt);
+  print(copyDataObj.aString);
+  print(copyDataObj.aDouble);
 }
