@@ -1,5 +1,5 @@
 void main() {
-  optionalNamedParameters();
+  exceptions();
 }
 
 /*
@@ -215,4 +215,64 @@ void optionalNamedParameters() {
   print(copyDataObj.anInt);
   print(copyDataObj.aString);
   print(copyDataObj.aDouble);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#exceptions
+*/
+typedef VoidFunction = void Function();
+
+class ExceptionWithMessage {
+  final String message;
+  const ExceptionWithMessage(this.message);
+}
+
+// Call logException to log an exception, and doneLogging when finished.
+abstract class Logger {
+  void logException(Type t, [String? msg]);
+  void doneLogging();
+}
+
+void tryFunction(VoidFunction untrustworthy, Logger logger) {
+  // Invoking this method might cause an exception. Catch and handle
+  // them using try-on-catch-finally.
+  
+  try {
+    untrustworthy();
+  } on ExceptionWithMessage catch (e) {
+    logger.logException(e.runtimeType, e.message);
+  } on Exception {
+    logger.logException((Exception));
+  } finally {
+    logger.doneLogging();
+  }
+  
+}
+
+class MyLogger extends Logger {
+  Type? lastType;
+  String lastMessage = '';
+  bool done = false;
+  
+  void logException(Type t, [String? message]) {
+    lastType = t;
+    lastMessage = message ?? lastMessage;
+  }
+  
+  void doneLogging() => done = true;  
+}
+
+void exceptions() {
+  var logger = MyLogger();
+
+  tryFunction(() => throw Exception(), logger);
+  print('${logger.lastType} ${logger.lastMessage}');
+
+  tryFunction(() => throw ExceptionWithMessage('Hey!'), logger);
+  print('${logger.lastType} ${logger.lastMessage}');
+
+  tryFunction(() {}, logger); // No exception, repeat last execution
+  print('${logger.lastType} ${logger.lastMessage}');
+
+  tryFunction(() => throw 'A String', logger); // Unhandled exception
 }
