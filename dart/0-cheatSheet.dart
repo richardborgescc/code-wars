@@ -1,5 +1,5 @@
 void main() {
-  exceptions();
+  usingThisInAConstructor();
 }
 
 /*
@@ -275,4 +275,30 @@ void exceptions() {
   print('${logger.lastType} ${logger.lastMessage}');
 
   tryFunction(() => throw 'A String', logger); // Unhandled exception
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#using-this-in-a-constructor
+*/
+class MyNamedParameterClass {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+  
+  // Create a constructor here.
+  MyNamedParameterClass({required this.anInt, required this.aString, required this.aDouble});
+}
+
+class MyPositionalParameterClass {
+  final int anInt;
+  final String aString;
+  final double aDouble;
+  
+  // Create a constructor here.
+  MyPositionalParameterClass(this.anInt, this.aString, this.aDouble);
+}
+
+void usingThisInAConstructor() {
+  MyNamedParameterClass(aDouble: 0.5, aString: 'invert', anInt: 10);
+  MyPositionalParameterClass(10, 'string', 0.5);
 }
