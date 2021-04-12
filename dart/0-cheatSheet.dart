@@ -315,7 +315,7 @@ class FirstTwoLetters {
     : letterOne = word[0],
       letterTwo = word[1],
       assert(word.length <= 2) {
-        print('invalid word');  
+        print('invalid word');
       }
 }
 
