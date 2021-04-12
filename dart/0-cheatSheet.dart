@@ -314,7 +314,7 @@ class FirstTwoLetters {
   FirstTwoLetters(String word)
     : letterOne = word[0],
       letterTwo = word[1],
-      assert(word.length >= 2) {
+      assert(word.length <= 2) {
         print('invalid word');  
       }
 }
