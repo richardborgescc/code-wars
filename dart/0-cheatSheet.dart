@@ -1,5 +1,5 @@
 void main() {
-  usingThisInAConstructor();
+  initializerLists();
 }
 
 /*
@@ -301,4 +301,27 @@ class MyPositionalParameterClass {
 void usingThisInAConstructor() {
   MyNamedParameterClass(aDouble: 0.5, aString: 'invert', anInt: 10);
   MyPositionalParameterClass(10, 'string', 0.5);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#initializer-lists
+*/
+class FirstTwoLetters {
+  final String letterOne;
+  final String letterTwo;
+
+  // Create a constructor with an initializer list here:
+  FirstTwoLetters(String word)
+    : letterOne = word[0],
+      letterTwo = word[1],
+      assert(word.length >= 2) {
+        print('invalid word');  
+      }
+}
+
+void initializerLists() {
+  FirstTwoLetters valid = FirstTwoLetters('12');
+  print('${valid.letterOne}, ${valid.letterTwo}');
+
+  FirstTwoLetters invalid = FirstTwoLetters('');
 }
