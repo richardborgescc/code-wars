@@ -1,5 +1,5 @@
 void main() {
-  initializerLists();
+  namedConstructors();
 }
 
 /*
@@ -315,7 +315,7 @@ class FirstTwoLetters {
     : letterOne = word[0],
       letterTwo = word[1],
       assert(word.length <= 2) {
-        print('invalid word');  
+        print('invalid word');
       }
 }
 
@@ -324,4 +324,26 @@ void initializerLists() {
   print('${valid.letterOne}, ${valid.letterTwo}');
 
   FirstTwoLetters invalid = FirstTwoLetters('');
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#named-constructors
+*/
+class Color {
+  int red;
+  int green;
+  int blue;
+  
+  Color(this.red, this.green, this.blue);
+
+  // Create a named constructor called "Color.black" here:
+  Color.black()
+    : red = 0,
+      green = 0,
+      blue = 0;
+}
+
+void namedConstructors() {
+  Color color = Color.black();
+  print('${color.red}, ${color.green}, ${color.blue}');
 }
