@@ -1,5 +1,5 @@
 void main() {
-  namedConstructors();
+  factoryConstructors();
 }
 
 /*
@@ -346,4 +346,66 @@ class Color {
 void namedConstructors() {
   Color color = Color.black();
   print('${color.red}, ${color.green}, ${color.blue}');
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#factory-constructors
+*/
+class IntegerHolder {
+  IntegerHolder();
+  
+  // Implement this factory constructor.
+  factory IntegerHolder.fromList(List<int> list) {
+    if (list.length == 1) {
+      return IntegerSingle(list[0]);
+    } else if (list.length == 2) {
+      return IntegerDouble(list[0], list[1]);
+    } else if (list.length == 3) {
+      return IntegerTriple(list[0], list[1], list[2]);
+    }
+
+    print('I don\'t recognize');
+    throw Error();
+  }
+}
+
+class IntegerSingle extends IntegerHolder {
+  final int a;
+  IntegerSingle(this.a); 
+}
+
+class IntegerDouble extends IntegerHolder {
+  final int a;
+  final int b;
+  IntegerDouble(this.a, this.b); 
+}
+
+class IntegerTriple extends IntegerHolder {
+  final int a;
+  final int b;
+  final int c;
+  IntegerTriple(this.a, this.b, this.c); 
+}
+
+void factoryConstructors() {
+  final obj = IntegerHolder.fromList([1, 2, 3]);
+
+  if (obj is! IntegerTriple) {
+    print('it is not a IntegerTripe');
+  } else {
+    if (obj.a != 1) {
+      print('undefined a');
+    }
+    print(obj.a);
+    
+    if (obj.b != 2) {
+      print('undefined b');
+    }
+    print(obj.b);
+
+    if (obj.c != 3) {
+      print('undefined c');
+    }
+    print(obj.c);
+  }
 }
