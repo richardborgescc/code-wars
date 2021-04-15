@@ -1,5 +1,5 @@
 void main() {
-  factoryConstructors();
+  redirectingConstructors();
 }
 
 /*
@@ -408,4 +408,22 @@ void factoryConstructors() {
     }
     print(obj.c);
   }
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#redirecting-constructors
+*/
+class ColorRedirectingConstructor {
+  int red;
+  int green;
+  int blue;
+  
+  ColorRedirectingConstructor(this.red, this.green, this.blue);
+
+  ColorRedirectingConstructor.black() : this(0, 0, 0);
+}
+
+void redirectingConstructors() {
+  ColorRedirectingConstructor color = ColorRedirectingConstructor.black();
+  print(color.red);
 }
