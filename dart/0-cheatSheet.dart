@@ -1,5 +1,5 @@
 void main() {
-  redirectingConstructors();
+  constConstructors();
 }
 
 /*
@@ -426,4 +426,22 @@ class ColorRedirectingConstructor {
 void redirectingConstructors() {
   ColorRedirectingConstructor color = ColorRedirectingConstructor.black();
   print(color.red);
+}
+
+/*
+  https://dart.dev/codelabs/dart-cheatsheet#const-constructors
+*/
+class Recipe {
+  const Recipe(this.ingredients, this.calories, this.milligramsOfSodium);
+  
+  final List<String> ingredients;
+  final int calories;
+  final double milligramsOfSodium;
+
+  static const Recipe recipe = Recipe(['rice', 'beans'], 1000, 50);
+}
+
+void constConstructors() {
+  Recipe recipe = Recipe.recipe;
+  print(recipe.ingredients);
 }
