@@ -1,5 +1,5 @@
 void main() {
-  constConstructors();
+  usingAForInLoop();
 }
 
 /*
@@ -444,4 +444,15 @@ class Recipe {
 void constConstructors() {
   Recipe recipe = Recipe.recipe;
   print(recipe.ingredients);
+}
+
+/*
+  https://dart.dev/codelabs/iterables#example-using-a-for-in-loop
+*/
+void usingAForInLoop() {
+  var iterable = ['Salad', 'Popcorn', 'Toast'];
+
+  for (var element in iterable) {
+    print(element);
+  }
 }
