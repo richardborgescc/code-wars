@@ -1,5 +1,5 @@
 void main() {
-  usingAForInLoop();
+  usingFirstAndLast();
 }
 
 /*
@@ -455,4 +455,14 @@ void usingAForInLoop() {
   for (var element in iterable) {
     print(element);
   }
+}
+
+/*
+  https://dart.dev/codelabs/iterables#example-using-first-and-last
+*/
+void usingFirstAndLast() {
+  Iterable iterable = ['first', 'second', 'third'];
+
+  print('first: ${iterable.first}');
+  print('last: ${iterable.last}');
 }
