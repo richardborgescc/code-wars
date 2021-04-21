@@ -1,5 +1,5 @@
 void main() {
-  usingFirstwhere();
+  writingATestPredicate();
 }
 
 /*
@@ -497,4 +497,15 @@ void usingFirstwhere() {
     orElse: () => 'None!',
   );
   print(element4);
+}
+
+/*
+  https://dart.dev/codelabs/iterables#exercise-practice-writing-a-test-predicate
+*/
+String singleWhere(Iterable<String> items) {
+  return items.singleWhere((element) => element.startsWith('M') && element.contains('a'));
+}
+
+void writingATestPredicate() {
+  print(singleWhere(['opa', 'Matter']));
 }
