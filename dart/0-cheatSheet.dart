@@ -1,5 +1,5 @@
 void main() {
-  writingATestPredicate();
+  checkingConditions();
 }
 
 /*
@@ -508,4 +508,33 @@ String singleWhere(Iterable<String> items) {
 
 void writingATestPredicate() {
   print(singleWhere(['opa', 'Matter']));
+}
+
+/*
+  https://dart.dev/codelabs/iterables#checking-conditions
+*/
+bool anyUserUnder18(Iterable<User> users) => users.any((user) => user.age < 18);
+
+bool everyUserOver13(Iterable<User> users) => users.every((user) => user.age > 13);
+
+class User {
+  String name;
+  int age;
+
+  User(
+    this.name,
+    this.age,
+  );
+}
+
+void checkingConditions() {
+  var users = [
+    User('Alice', 21),
+    User('Bob', 17),
+    User('Claire', 52),
+    User('David', 14),
+  ];
+
+  print(anyUserUnder18(users));
+  print(everyUserOver13(users));
 }
