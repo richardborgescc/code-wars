@@ -1,5 +1,5 @@
 void main() {
-  checkingConditions();
+  filtering();
 }
 
 /*
@@ -537,4 +537,11 @@ void checkingConditions() {
 
   print(anyUserUnder18(users));
   print(everyUserOver13(users));
+}
+
+/*
+  https://dart.dev/codelabs/iterables#filtering
+*/
+void filtering() {
+  
 }
