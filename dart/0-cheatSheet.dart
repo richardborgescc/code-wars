@@ -542,6 +542,35 @@ void checkingConditions() {
 /*
   https://dart.dev/codelabs/iterables#filtering
 */
+Iterable<UserFiltering> filterUnder21(Iterable<UserFiltering> users) {
+  return users.where((user) => user.age >= 21);
+}
+
+Iterable<UserFiltering> findShortNamed(Iterable<UserFiltering> users) {
+  return users.where((user) => user.name.length <= 3);
+}
+
+class UserFiltering {
+  String name = '';
+  int age = 0;
+
+  UserFiltering(
+    this.name,
+    this.age,
+  );
+}
+
 void filtering() {
-  
+  var users = [
+    UserFiltering('Alice', 21),
+    UserFiltering('Bob', 17),
+    UserFiltering('Claire', 52),
+    UserFiltering('Dan', 12),
+  ];
+
+  Iterable<UserFiltering> under21 = filterUnder21(users);
+  under21.forEach((element) => print('more than 21: ${element.name} - ${element.age}'));
+
+  Iterable<UserFiltering> shortNames = filterUnder21(users);
+  shortNames.forEach((element) => print('short name: ${element.name} - ${element.age}'));
 }
