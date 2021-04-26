@@ -1,5 +1,5 @@
 void main() {
-  mapping();
+  exercisePuttingItAllTogether();
 }
 
 /*
@@ -597,4 +597,42 @@ void mapping() {
     UserMapping('User2', 20),
     UserMapping('User3', 30),
   ]));
+}
+
+/*
+  https://dart.dev/codelabs/iterables#exercise-putting-it-all-together
+*/
+Iterable<EmailAddress> parseEmailAddresses(Iterable<String> strings) => strings
+  .map((mail) => EmailAddress(mail));
+
+bool anyInvalidEmailAddress(Iterable<EmailAddress> emails) {
+  TODO('Implement this method');
+}
+
+Iterable<EmailAddress> validEmailAddresses(Iterable<EmailAddress> emails) {
+  TODO('Implement this method');
+}
+
+class EmailAddress {
+  String address;
+
+  EmailAddress(this.address);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+          other is EmailAddress &&
+              address == other.address;
+
+  @override
+  int get hashCode => address.hashCode;
+
+  @override
+  String toString() {
+    return 'EmailAddress{address: $address}';
+  }
+}
+
+void exercisePuttingItAllTogether() {
+
 }
