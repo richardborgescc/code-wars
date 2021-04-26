@@ -1,5 +1,5 @@
 void main() {
-  filtering();
+  mapping();
 }
 
 /*
@@ -573,4 +573,28 @@ void filtering() {
 
   Iterable<UserFiltering> shortNames = filterUnder21(users);
   shortNames.forEach((element) => print('short name: ${element.name} - ${element.age}'));
+}
+
+/*
+  https://dart.dev/codelabs/iterables#mapping
+*/
+Iterable<String> getNameAndAges(Iterable<UserMapping> users) => users
+  .map((user) => '${user.name} is ${user.age}');
+
+class UserMapping {
+  String name = '';
+  int age = 0;
+
+  UserMapping(
+    this.name,
+    this.age,
+  );
+}
+
+void mapping() {
+  print(getNameAndAges([
+    UserMapping('User1', 10),
+    UserMapping('User2', 20),
+    UserMapping('User3', 30),
+  ]));
 }
