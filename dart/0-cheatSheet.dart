@@ -602,6 +602,10 @@ void mapping() {
 /*
   https://dart.dev/codelabs/iterables#exercise-putting-it-all-together
 */
+bool isValidEmailAddress(EmailAddress email) {
+  return email.address.contains('@');
+}
+
 Iterable<EmailAddress> parseEmailAddresses(Iterable<String> strings) => strings
   .map((mail) => EmailAddress(mail));
 
@@ -634,5 +638,9 @@ class EmailAddress {
 }
 
 void exercisePuttingItAllTogether() {
-
+  var input = [
+    'ali@gmail.com',
+    'bobgmail.com',
+    'cal@gmail.com',
+  ];
 }
