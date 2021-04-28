@@ -609,13 +609,11 @@ bool isValidEmailAddress(EmailAddress email) {
 Iterable<EmailAddress> parseEmailAddresses(Iterable<String> strings) => strings
   .map((mail) => EmailAddress(mail));
 
-bool anyInvalidEmailAddress(Iterable<EmailAddress> emails) {
-  TODO('Implement this method');
-}
+bool anyInvalidEmailAddress(Iterable<EmailAddress> emails) => emails
+  .any((email) => !isValidEmailAddress(email));
 
-Iterable<EmailAddress> validEmailAddresses(Iterable<EmailAddress> emails) {
-  TODO('Implement this method');
-}
+Iterable<EmailAddress> validEmailAddresses(Iterable<EmailAddress> emails) => emails
+  .where((email) => isValidEmailAddress(email));
 
 class EmailAddress {
   String address;
@@ -643,4 +641,9 @@ void exercisePuttingItAllTogether() {
     'bobgmail.com',
     'cal@gmail.com',
   ];
+
+  Iterable<EmailAddress> emailsList = parseEmailAddresses(input);
+
+  print(anyInvalidEmailAddress(emailsList));
+  print(validEmailAddresses(emailsList));
 }
